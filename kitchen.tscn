@@ -1,0 +1,226 @@
+[gd_scene load_steps=19 format=3 uid="uid://bbnvvd3opf8sr"]
+
+[ext_resource type="Script" uid="uid://tk5yvwxyy3ti" path="res://kitchen.gd" id="1_efyc0"]
+[ext_resource type="PackedScene" uid="uid://cdt5kac40m7on" path="res://player.tscn" id="2_ipk1y"]
+[ext_resource type="Theme" uid="uid://b8r3kkpruqrrk" path="res://new_theme.tres" id="2_k6unl"]
+[ext_resource type="Texture2D" uid="uid://bwu8dmrf1s5f7" path="res://floor_tile.png" id="2_r0fwo"]
+[ext_resource type="PackedScene" uid="uid://bk2v0tvgt2w2j" path="res://oven.tscn" id="3_xsyy8"]
+[ext_resource type="PackedScene" uid="uid://cucwt383vhy1u" path="res://fridge.tscn" id="5_7yojt"]
+[ext_resource type="PackedScene" uid="uid://cys4d8lu0v31h" path="res://stove.tscn" id="5_g8uxm"]
+[ext_resource type="PackedScene" uid="uid://cg1aisuex0os8" path="res://mixer.tscn" id="6_g8uxm"]
+[ext_resource type="PackedScene" uid="uid://d0pvse2q8ycqb" path="res://cabinet.tscn" id="7_f16ov"]
+[ext_resource type="PackedScene" uid="uid://cil3qe4afldt6" path="res://sink.tscn" id="8_77hbq"]
+[ext_resource type="PackedScene" uid="uid://cmfi8dtprjvjm" path="res://serving_plate.tscn" id="10_0ip1g"]
+[ext_resource type="PackedScene" uid="uid://c1l45n8gtegk5" path="res://countertop.tscn" id="12_jluyr"]
+[ext_resource type="PackedScene" uid="uid://baoy54typjvju" path="res://plating_station.tscn" id="12_xnsi2"]
+[ext_resource type="Texture2D" uid="uid://cy7a3ldrgluq7" path="res://ui_texture.png" id="13_jluyr"]
+
+[sub_resource type="Theme" id="Theme_k6unl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnsi2"]
+size = Vector2(71, 914)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jluyr"]
+size = Vector2(1297, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6unl"]
+size = Vector2(72, 920.5)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_efyc0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -633.0
+offset_top = -64.0
+offset_right = 1280.0
+offset_bottom = 1024.0
+theme = ExtResource("2_k6unl")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -24.0
+offset_right = 1941.0
+offset_bottom = 1090.0
+theme = ExtResource("2_k6unl")
+texture = ExtResource("13_jluyr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 250.0
+offset_bottom = 128.0
+theme = SubResource("Theme_k6unl")
+theme_override_constants/separation = 4
+
+[node name="Score" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Total Score: 0"
+vertical_alignment = 2
+
+[node name="Orders" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Order" type="Label" parent="Control/VBoxContainer/Orders"]
+layout_mode = 2
+text = "Order"
+
+[node name="Appetizer" type="VBoxContainer" parent="Control/VBoxContainer/Orders"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Orders/Appetizer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Orders/Appetizer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "default"
+autowrap_mode = 2
+
+[node name="Entree" type="VBoxContainer" parent="Control/VBoxContainer/Orders"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Orders/Entree"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Orders/Entree"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "default"
+autowrap_mode = 2
+
+[node name="Dessert" type="VBoxContainer" parent="Control/VBoxContainer/Orders"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Orders/Dessert"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Orders/Dessert"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "default"
+autowrap_mode = 2
+
+[node name="Contents" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="ContentBox" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Recipes" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="RecipeContainer" type="VBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Prompt" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = 245.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 29
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+offset = Vector2(-256, 160)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(640, 640)
+texture = ExtResource("2_r0fwo")
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 1280)
+
+[node name="Appliances" type="Node2D" parent="."]
+
+[node name="Oven" parent="Appliances" instance=ExtResource("3_xsyy8")]
+position = Vector2(1216, 384)
+
+[node name="Countertop5" parent="Appliances" instance=ExtResource("12_jluyr")]
+position = Vector2(192, -32)
+
+[node name="Fridge" parent="Appliances" instance=ExtResource("5_7yojt")]
+position = Vector2(192, 32)
+
+[node name="Stove" parent="Appliances" instance=ExtResource("5_g8uxm")]
+position = Vector2(64, 383)
+
+[node name="Stove2" parent="Appliances" instance=ExtResource("5_g8uxm")]
+position = Vector2(1088, 384)
+
+[node name="Mixer" parent="Appliances" instance=ExtResource("6_g8uxm")]
+position = Vector2(320, 383)
+
+[node name="Mixer2" parent="Appliances" instance=ExtResource("6_g8uxm")]
+position = Vector2(1216, 736)
+
+[node name="Cabinet" parent="Appliances" instance=ExtResource("7_f16ov")]
+position = Vector2(192, 736)
+
+[node name="Cabinet2" parent="Appliances" instance=ExtResource("7_f16ov")]
+position = Vector2(960, 384)
+
+[node name="Sink" parent="Appliances" instance=ExtResource("8_77hbq")]
+position = Vector2(576, 32)
+
+[node name="ServingPlate" parent="Appliances" instance=ExtResource("10_0ip1g")]
+position = Vector2(1088, 32)
+
+[node name="PlatingStation" parent="Appliances" instance=ExtResource("12_xnsi2")]
+position = Vector2(832, 32)
+
+[node name="Countertop" parent="Appliances" instance=ExtResource("12_jluyr")]
+position = Vector2(960, 32)
+
+[node name="Countertop4" parent="Appliances" instance=ExtResource("12_jluyr")]
+position = Vector2(192, 383)
+
+[node name="Countertop9" parent="Appliances" instance=ExtResource("12_jluyr")]
+position = Vector2(448, 383)
+
+[node name="Countertop10" parent="Appliances" instance=ExtResource("12_jluyr")]
+position = Vector2(832, 384)
+
+[node name="Countertop11" parent="Appliances" instance=ExtResource("12_jluyr")]
+position = Vector2(1088, 736)
+
+[node name="Countertop2" parent="Appliances" instance=ExtResource("12_jluyr")]
+position = Vector2(1216, 32)
+
+[node name="Oven2" parent="Appliances" instance=ExtResource("3_xsyy8")]
+position = Vector2(64, 736)
+
+[node name="Countertop3" parent="Appliances" instance=ExtResource("12_jluyr")]
+position = Vector2(64, 32)
+
+[node name="Countertop6" parent="Appliances" instance=ExtResource("12_jluyr")]
+position = Vector2(320, 32)
+
+[node name="Countertop7" parent="Appliances" instance=ExtResource("12_jluyr")]
+position = Vector2(448, 32)
+
+[node name="Countertop8" parent="Appliances" instance=ExtResource("12_jluyr")]
+position = Vector2(704, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Appliances"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Appliances/StaticBody2D"]
+position = Vector2(-35.5, 580)
+shape = SubResource("RectangleShape2D_xnsi2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Appliances/StaticBody2D"]
+position = Vector2(640, 1069)
+shape = SubResource("RectangleShape2D_jluyr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Appliances/StaticBody2D"]
+position = Vector2(1316, 581.75)
+shape = SubResource("RectangleShape2D_k6unl")
+
+[node name="Player" parent="." instance=ExtResource("2_ipk1y")]
+position = Vector2(865, 233)

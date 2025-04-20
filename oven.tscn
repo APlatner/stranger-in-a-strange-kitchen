@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk2v0tvgt2w2j"]
+
+[ext_resource type="Script" uid="uid://xnoco82nrhe3" path="res://oven.gd" id="1_22qub"]
+[ext_resource type="Texture2D" uid="uid://dlpak6e3ppi3c" path="res://oven_off.png" id="2_my181"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_my181"]
+size = Vector2(50, 222)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7fv6"]
+size = Vector2(128, 192)
+
+[node name="Oven" type="Area2D"]
+script = ExtResource("1_22qub")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_my181")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_my181")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_x7fv6")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -28.0
+offset_top = -46.0
+offset_right = 26.0
+offset_bottom = -19.0

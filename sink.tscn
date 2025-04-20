@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cil3qe4afldt6"]
+
+[ext_resource type="Script" uid="uid://ds6uatwb7d2b8" path="res://sink.gd" id="1_hg6cf"]
+[ext_resource type="Texture2D" uid="uid://bh2y0vnc5k48k" path="res://sink.png" id="2_hg6cf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyvp6"]
+size = Vector2(50, 133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s647l"]
+size = Vector2(128, 192)
+
+[node name="Sink" type="Area2D"]
+script = ExtResource("1_hg6cf")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_hg6cf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 41)
+shape = SubResource("RectangleShape2D_oyvp6")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_s647l")

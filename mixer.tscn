@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg1aisuex0os8"]
+
+[ext_resource type="Script" uid="uid://c2nj4ulmgghrd" path="res://mixer.gd" id="1_ka81b"]
+[ext_resource type="Texture2D" uid="uid://nqj7byygk4td" path="res://mixer.png" id="1_vnmg7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka81b"]
+size = Vector2(50, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kwv2"]
+size = Vector2(128, 192)
+
+[node name="Mixer" type="Area2D"]
+script = ExtResource("1_ka81b")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_vnmg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_ka81b")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1kwv2")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -28.0
+offset_top = -46.0
+offset_right = 26.0
+offset_bottom = -19.0

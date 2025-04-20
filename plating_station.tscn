@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://baoy54typjvju"]
+
+[ext_resource type="Script" uid="uid://boyr0f44evil2" path="res://plating_station.gd" id="1_ov6vk"]
+[ext_resource type="Texture2D" uid="uid://c3vgqmleux22f" path="res://plating_station.png" id="2_iwrn6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnnl6"]
+size = Vector2(50, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agvaf"]
+size = Vector2(128, 192)
+
+[node name="PlatingStation" type="Area2D"]
+script = ExtResource("1_ov6vk")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_iwrn6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 58)
+shape = SubResource("RectangleShape2D_qnnl6")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_agvaf")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -28.0
+offset_top = -46.0
+offset_right = 26.0
+offset_bottom = -19.0

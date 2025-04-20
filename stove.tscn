@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cys4d8lu0v31h"]
+
+[ext_resource type="Script" uid="uid://daxaohp0s86ni" path="res://stove.gd" id="1_3fsnh"]
+[ext_resource type="Texture2D" uid="uid://dq6ohkx3lw05r" path="res://stove.png" id="2_a3bkh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eim6s"]
+size = Vector2(50, 222)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v45k4"]
+size = Vector2(128, 192)
+
+[node name="Stove" type="Area2D"]
+script = ExtResource("1_3fsnh")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_a3bkh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eim6s")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_v45k4")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -28.0
+offset_top = -46.0
+offset_right = 26.0
+offset_bottom = -19.0

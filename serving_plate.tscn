@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmfi8dtprjvjm"]
+
+[ext_resource type="Script" uid="uid://sl342pxlcq4v" path="res://serving_plate.gd" id="1_sl3wr"]
+[ext_resource type="Texture2D" uid="uid://mekd3yw2rsbr" path="res://serving_plate.png" id="2_sl3wr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_caxyu"]
+size = Vector2(50, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brwg5"]
+size = Vector2(128, 192)
+
+[node name="ServingPlate" type="Area2D"]
+script = ExtResource("1_sl3wr")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_sl3wr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 58)
+shape = SubResource("RectangleShape2D_caxyu")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_brwg5")
+
+[node name="Sprite1" type="Sprite2D" parent="."]
+position = Vector2(-23, -52)
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(29, -39)
+
+[node name="Sprite3" type="Sprite2D" parent="."]

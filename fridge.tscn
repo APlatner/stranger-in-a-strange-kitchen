@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cucwt383vhy1u"]
+
+[ext_resource type="Script" uid="uid://bmpo54j7wxqo3" path="res://fridge.gd" id="1_ypa8n"]
+[ext_resource type="Texture2D" uid="uid://c1dfnh3h237f6" path="res://fridge.png" id="2_e6sfw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6sfw"]
+size = Vector2(50, 133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk71u"]
+size = Vector2(128, 192)
+
+[node name="Fridge" type="Area2D"]
+script = ExtResource("1_ypa8n")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_e6sfw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 41)
+shape = SubResource("RectangleShape2D_e6sfw")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gk71u")
+
+[node name="Inventory" type="VBoxContainer" parent="."]
+visible = false
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
